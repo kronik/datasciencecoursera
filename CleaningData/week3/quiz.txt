@@ -1,0 +1,25 @@
+data <- read.csv("data.csv", header=F, skip=5, blank.lines.skip = T, stringsAsFactors = F)
+eduData <- read.csv("edu-data.csv")
+
+data <- data[,c(1,2,3,4,5)]
+
+data$gdp <- sub(",",".", data$V5)
+data$gdp <- as.numeric(data$gdp)
+
+    merged <- merge(data, eduData, by.x="V1", by.y="CountryCode", all=F)
+    merged <- data.frame(merged, rank = as.numeric(merged$V2))
+    sorted <- merged[order(merged$rank, decreasing = T, na.last=T),]
+
+    groups <- group_by(sorted, Income.Group)
+    summarise(groups, income = mean(rank, na.rm = T))
+
+    qntl <- quantile(sorted$rank, na.rm = T, probs = seq(0, 1, 0.25))
+    sorted$groupSlice <- cut(sorted$rank, breaks = qntl)
+
+    //or
+
+    sorted$groupSlice <- cut2(sorted$rank, g=5)
+
+    table(sorted$Income.Group, sorted$groupSlice)
+
+    nrow(merged)
