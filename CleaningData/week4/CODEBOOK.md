@@ -12,6 +12,12 @@ The data for the project was downloaded from:
 
 The values in original data set come from the accelerometer and gyroscope 3-axial raw signals. The acceleration signal was then separated into body and gravity acceleration signals. Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals. 
 
+NOTE: No unit of measures is reported. All features were normalized and bounded within -1,1.
+
+#Data transformation
+
+There is only one script called run_analysis.R that transform the data. The libraries dplyr, data.table and reshape3 are required to run and is loaded at the beginning of the script.
+
 #In general our scope of work looks like following:
 
  1. Merge the training and the test sets to create one data set.
