@@ -60,7 +60,7 @@ Let's check dimensions of data sets which we need to glue together:
 [1] 561   2
 ``` 
 
-Luckely we see that number of columns in pairs testXdata vs trainXdata , testYdata vs trainYdata and testSubjectData vs trainSubjectData match each other. Moreover number of experiments in each data set also matches each other. So that means we can combine (append) them without extra data transformations:
+Luckily we see that number of columns in pairs testXdata vs trainXdata , testYdata vs trainYdata and testSubjectData vs trainSubjectData match each other. Moreover number of experiments in each data set also matches each other. So that means we can combine (append) them without extra data transformations:
 
 ```R
 xData <- rbind(testXdata, trainXdata)
