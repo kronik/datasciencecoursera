@@ -1,4 +1,4 @@
-Exploratory Data Analysis Project
+Exploratory Data Analysis (week 4)
 ========================================================
 
 #Course Project
